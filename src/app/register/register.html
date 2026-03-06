@@ -1,0 +1,108 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<div class="page-wrapper">
+    <div class="register-container">
+        <h2>Create Account</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <!-- Full Name -->
+            <div class="input-group">
+                <label>Full Name</label>
+
+                <input type="text" formControlName="fullName">
+
+                <div class="field-error" *ngIf="f.fullName.touched && f.fullName.invalid">
+
+                    <small *ngIf="f.fullName.errors?.['required']">
+                        Full Name is required
+                    </small>
+
+                    <small *ngIf="f.fullName.errors?.['maxlength']">
+                        Maximum 30 characters allowed
+                    </small>
+
+                    <small *ngIf="f.fullName.errors?.['pattern']">
+                        Only letters and spaces allowed
+                    </small>
+
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <label>Email</label>
+
+                <input type="email" formControlName="email">
+
+                <div class="field-error" *ngIf="f.email.touched && f.email.invalid">
+
+                    <small *ngIf="f.email.errors?.['required']">
+                        Email is required
+                    </small>
+
+                    <small *ngIf="f.email.errors?.['email']">
+                        Enter valid email format
+                    </small>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="input-group">
+                <label>Mobile Number</label>
+                <div class="phone-wrapper">
+                    <span class="phone-prefix">+91</span>
+                    <input type="tel" formControlName="phone" maxlength="10" placeholder="Enter 10 digit number">
+                </div>
+
+                <!-- Required Error -->
+                <small class="error" *ngIf="f['phone'].touched && f['phone'].errors?.['required']">
+                    Mobile number is required
+                </small>
+
+                <!-- Pattern Error -->
+                <small class="error" *ngIf="f['phone'].touched && f['phone'].errors?.['pattern']">
+                    Phone must be exactly 10 digits
+                </small>
+
+            </div>
+            <div *ngIf="phoneExists" class="error">
+                Phone number already exists. Please use a different number.
+            </div>
+            <!-- Submit Button (Centered) -->
+            <div class="center-btn">
+                <button type="submit" class="generate-btn"
+                    [disabled]="f.fullName.invalid || f.email.invalid || f.phone.invalid || phoneExists">
+                    Submit
+                </button>
+            </div>
+
+            <!-- Captcha Section (Appears After Submit Click) -->
+            <div *ngIf="showCaptchaSection">
+
+                <div class="captcha-display">
+                    {{ generatedCaptcha }}
+                </div>
+
+                <div class="input-group">
+                    <label>Enter Captcha</label>
+                    <input type="text" formControlName="captchaInput">
+                </div>
+
+                <div *ngIf="showErrorMessage" class="error-message">
+                    Please enter the details properly
+                </div>
+                <div *ngIf="showErrorMessage" style="color:red;">
+                    Phone number already registered!
+                </div>
+                <button type="submit" class="register-btn"
+                    [disabled]="registerForm.value.captchaInput !== generatedCaptcha">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Success Popup -->
+<div class="popup" *ngIf="showPopup">
+    Registered Successfully!
+</div>

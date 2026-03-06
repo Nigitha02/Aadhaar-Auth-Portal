@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.main-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ===== BACKGROUND IMAGE ===== */
+.bg-image {
+    position: fixed;
+    /* Changed from absolute */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/prx-4-indian-women-devices.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -3;
+}
+
+/* Light Overlay */
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    background: linear-gradient(to left,
+            rgba(0, 0, 0, 0.90),
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.30));
+
+    z-index: -2;
+}
+
+/* ===== CONTENT LAYOUT ===== */
+.content {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* ===== LEFT CARD (Full Height Transparent) ===== */
+.left-card {
+    width: 50%;
+    height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: transparent;
+    /* Fully transparent */
+    /* border-right: 1px solid rgba(255, 255, 255, 0.4); */
+    /* Optional subtle divider */
+}
+
+/* Logo (Top Left) */
+.logo img {
+    width: 150px;
+    filter: saturate(0.6) brightness(0.85);
+}
+
+
+/* Center Content */
+.left-content {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 60px;
+    transform: translateY(-20px);
+}
+
+.left-content h1 {
+    font-size: 2.8rem;
+    color: #d6ddea;
+    margin-bottom: 20px;
+}
+
+.left-content p {
+    font-size: 1.1rem;
+    color: #d6ddea;
+    max-width: 420px;
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+}
+
+/* RIGHT BLOCK */
+/* PAGE LAYOUT */
+.layout {
+    display: flex;
+    display: flex;
+    background: #f1f5f9;
+}
+
+/* LEFT SIDE (Optional Branding Area) */
+.left-side {
+    width: 50%;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+/* RIGHT SIDE */
+.right-side {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    align-self: center;
+    /* prevents stretching */
+}
+
+
+/* LOGIN CARD */
+.secure-login-card {
+    align-self: center;
+    /* prevents stretch */
+    height: auto;
+    width: 100%;
+    max-width: 420px;
+    padding: 48px 42px;
+    border-radius: 16px;
+
+    background: #e2e1e1;
+    color: #0f172a;
+
+    border: 1px solid #f5f4f6;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+
+    font-family: 'Inter', sans-serif;
+}
+
+/* HEADER */
+.login-header {
+    margin-bottom: 32px;
+}
+
+.title {
+    font-size: 34px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-weight: 600;
+}
+
+
+.english {
+    color: #475569;
+}
+
+.subtitle {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tag {
+    border: 1px solid #cbd5e1;
+    padding: 4px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    background: #f1f5f9;
+    color: #334155;
+}
+
+/* FORM LABEL */
+.form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #334155;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* INPUT FIELDS */
+.secure-login-card input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    font-size: 14px;
+    margin-bottom: 18px;
+    transition: 0.2s ease;
+}
+
+.secure-login-card input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    outline: none;
+}
+
+/* OTP ROW */
+.otp-row {
+    display: flex;
+    gap: 12px;
+}
+
+/* OTP BUTTON */
+.otp-btn {
+    padding: 0 20px;
+    border-radius: 8px;
+    border: 1px solid #2563eb;
+    background: #ffffff;
+    color: #2563eb;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.otp-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* SIGN IN BUTTON */
+.signin-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    margin: 28px 0;
+
+    background: #1d4ed8;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.signin-btn:hover {
+    background: #1e40af;
+}
+
+/* BOTTOM SECTION */
+.bottom-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.bottom-links a {
+    color: #475569;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.bottom-links a:hover {
+    color: #1d4ed8;
+}
+
+/* CREATE ACCOUNT BUTTON */
+.create-btn {
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid #16a34a;
+    background: #f0fdf4;
+    color: #15803d;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.create-btn:hover {
+    background: #16a34a;
+    color: white;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link span {
+    color: #475569;
+}
+
+.register-link a {
+    color: #1d4ed8;
+    font-weight: 600;
+    margin-left: 6px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .left-side {
+        display: none;
+    }
+
+    .right-side {
+        width: 100%;
+    }
+
+    .otp-row {
+        flex-direction: column;
+    }
+
+    .otp-btn {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+/* HEADING ROW */
+.portal-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* IMAGE BESIDE TEXT */
+.portal-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+    margin-left: -11px;
+    filter: drop-shadow(0 0 20px rgba(216, 231, 132, 0.6));
+    border: 2px solid #000;
+    animation: drawBox 1.2s ease-out forwards;
+}
+
+.portal-heading h1 {
+    font-size: 2.6rem;
+    color: #d6ddea;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .left-card,
+    .right-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .left-card {
+        padding: 30px;
+    }
+
+    .login-panel {
+        width: 90%;
+        margin-bottom: 40px;
+    }
+}

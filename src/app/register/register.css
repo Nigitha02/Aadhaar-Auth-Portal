@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #eef5ff 0%, #d9e9fa 100%);
+    font-family: 'Inter', sans-serif;
+    padding: 1.5rem;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 720px;
+    /* increased from 560px */
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 42px;
+    padding: 3rem 3rem;
+    /* increased padding */
+    box-shadow: 0 30px 60px -20px rgba(0, 30, 60, 0.4);
+    position: relative;
+}
+
+
+.register-container h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0b2b44;
+    margin-bottom: 1rem;
+    border-left: 6px solid #ff7b2c;
+    padding-left: 1rem;
+}
+
+/* INPUT GROUP */
+.input-group {
+    margin-bottom: 1.6rem;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #1e4f6b;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.6rem 1.4rem;
+    /* taller */
+    border-radius: 30px;
+    margin-bottom: 0.1rem;
+    /* reduced spacing */
+
+    /* smoother */
+    border: 1px solid #cbddee;
+    font-size: 1.05rem;
+    /* slightly bigger text */
+    font-weight: 500;
+    color: #0b2b44;
+    outline: none;
+    transition: 0.2s;
+}
+
+
+.input-group input:focus {
+    border-color: #ff8a3c;
+    box-shadow: 0 0 0 2px #ffe5d4;
+}
+
+/* PHONE */
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    border: 1px solid #cbddee;
+    padding-right: 10px;
+}
+
+
+.phone-prefix {
+    padding: 0.9rem 1rem;
+    font-weight: 600;
+    color: #1e4f6b;
+    border-right: 1px dashed #b9cfdf;
+}
+
+.phone-wrapper input {
+    border: none !important;
+    flex: 1;
+}
+
+/* ERRORS */
+.field-error small,
+.error {
+    display: inline-block;
+    margin-top: 0.4rem;
+    background: #ffebe7;
+    color: #b12a0e;
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.error-message {
+    text-align: center;
+    background: #ffebe7;
+    color: #b12a0e;
+    padding: 0.8rem;
+    border-radius: 40px;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/* CENTER BUTTON */
+.center-btn {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+/* GENERATE BUTTON */
+.generate-btn {
+    background: linear-gradient(115deg, #113d5a, #0b4b6b);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.9rem 2.5rem;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.generate-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* CAPTCHA DISPLAY */
+.captcha-display {
+    background: #faf7f0;
+    font-family: 'Courier New', monospace;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 10px;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 40px;
+    border: 2px dashed #31607c;
+    color: #1d4e6e;
+    margin: 1rem 0;
+}
+
+/* REGISTER BUTTON */
+/* .register-btn {
+    width: 100%;
+    background: linear-gradient(115deg, #cc5200, #ff7b2c);
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 40px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+} */
+.register-btn {
+    width: 100%;
+    background: linear-gradient(115deg, #cc5200, #ff7b2c);
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 0.6rem;
+}
+
+.register-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    background: #0c4158;
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: 0 50px 50px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    /* Animation */
+    transform: translateX(-100%);
+    animation: slideFromLeft 0.6s ease forwards;
+}
+
+/* Slide animation */
+@keyframes slideFromLeft {
+    to {
+        transform: translateX(0);
+    }
+}

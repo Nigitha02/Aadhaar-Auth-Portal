@@ -1,0 +1,62 @@
+<div class="main-container">
+
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
+
+    <div class="content">
+
+        <!-- LEFT SIDE -->
+        <div class="left-card">
+
+            <div class="logo">
+                <img src="/download.png" alt="Logo">
+            </div>
+
+            <div class="left-content">
+                <h1>Digital Identity Portal</h1>
+                <p>
+                    Secure authentication system powered by biometric
+                    and encrypted identity verification.
+                    Access citizen services safely and seamlessly.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- LOGIN CARD -->
+        <div class="secure-login-card">
+
+            <h1 class="title">login</h1>
+            <p class="subtitle">Secure Aadhaar & DigiLocker access</p>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <label>Mobile Number</label>
+                <input type="text" formControlName="mobile" maxlength="10" placeholder="Enter 10-digit mobile">
+
+                <div class="otp-row">
+                    <input type="text" formControlName="otp" maxlength="6" placeholder="6-digit OTP">
+
+                    <button type="button" class="otp-btn" (click)="requestOtp()">
+                        REQUEST OTP
+                    </button>
+                </div>
+
+                <button type="submit" class="signin-btn">
+                    Sign in securely →
+                </button>
+                <div class="register-link">
+                    <span>No account?</span>
+                    <a routerLink="/register">Create one</a>
+                </div>
+
+            </form>
+
+            <div class="message" *ngIf="message">
+                {{ message }}
+            </div>
+
+        </div>
+
+    </div>
+</div>

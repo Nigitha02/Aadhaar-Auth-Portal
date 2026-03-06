@@ -1,0 +1,157 @@
+<div class="container" id="mainContainer">
+
+    <h2>
+        <i class="fas fa-fingerprint"></i>
+        Aadhaar e-Verify
+    </h2>
+    <div class="subhead">Secure thumb authentication</div>
+
+    <div class="aadhaar-row">
+
+        <div class="input-group">
+            <div class="label-text">AADHAAR NUMBER</div>
+
+            <div class="aadhaar-field">
+                <span class="static-hyphens"></span>
+
+                <input type="text" placeholder="XXXX-XXXX-XXXX" maxlength="14" inputmode="numeric"
+                    [ngModel]="aadhaarInputValue()" (ngModelChange)="onInputChange($event)"
+                    (keydown)="onKeyDown($event)">
+            </div>
+            <!-- SEND OTP BUTTON -->
+            <!-- <button class="send-otp-btn" [disabled]="rawAadhaar().length !== 12" (click)="generateOtp()">
+                Send OTP
+            </button> -->
+
+            <!-- OTP INPUT FIELD -->
+            <!-- <div class="otp-group" *ngIf="otpSent()">
+                <div class="label-text">ENTER OTP</div>
+                <input type="text" maxlength="6" placeholder="Enter 6 digit OTP" [ngModel]="enteredOtp()"
+                    (ngModelChange)="enteredOtp.set($event)">
+            </div> -->
+        </div>
+
+        <div class="thumb-box">
+
+            <div class="square" [ngClass]="{
+                    'scanning': isScanning(),
+                    'scanned': isScanned()
+                 }">
+
+                <ng-container *ngIf="isScanning()">
+                    <div class="scanner-beam"></div>
+                </ng-container>
+
+                <span class="thumb-icon">
+
+                    <ng-container *ngIf="!scanResultIcon()">
+                        <img src="/fingerprint-scan-biometric-identification_8071-43679.png" alt="Fingerprint Logo"
+                            style="width:100%; height:100%; object-fit:cover; display:block;">
+                    </ng-container>
+
+                    <ng-container *ngIf="scanResultIcon()">
+                        {{ scanResultIcon() }}
+                    </ng-container>
+
+                </span>
+
+            </div>
+
+            <div class="thumb-label">place your thumb</div>
+
+            <div class="scan-status" [innerHTML]="scanStatusText()">
+            </div>
+
+        </div>
+    </div>
+
+    <button class="ok-btn" [disabled]="!isButtonEnabled() || isScanning()" (click)="startScan()">
+        OK →
+    </button>
+
+    <div class="info-note">
+        ✔ enter 12 digits, auto-format XXXX-XXXX-XXXX
+    </div>
+
+</div>
+
+
+<!-- POPUP CARD -->
+<div class="popup-overlay" *ngIf="showPopup()">
+
+    <div class="aadhaar-card-wrapper" [class.flipped]="isFlipped()" (click)="toggleFlip()">
+
+        <!-- FRONT SIDE -->
+        <div class="aadhaar-card front">
+
+            <div class="card-header">
+
+                <!-- Left Logo -->
+                <div class="header-left">
+                    <img src="/emblem.png" alt="India Logo" class="india-logo">
+                </div>
+
+                <!-- Center Text -->
+                <div class="header-center">
+                    Government of India
+                </div>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="left-section">
+                    <div class="chip"></div>
+
+                    <div class="details">
+                        <p><strong>Name:</strong> {{ popupName() }}</p>
+                        <p><strong>DOB:</strong> {{ popupDob() }}</p>
+                        <p><strong>Gender:</strong> {{ popupGender() }}</p>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <div class="photo">
+                        <img [src]="popupImg()" style="width:100%; height:100%; object-fit:cover;" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="aadhaar-number">
+                {{ popupAadhaar() }}
+            </div>
+
+        </div>
+
+
+        <!-- BACK SIDE -->
+        <div class="aadhaar-card back">
+
+            <!-- <div class="back-title">Address Details</div> -->
+
+            <div class="address-details">
+                <div class="back-title">Address Details</div>
+                <p><strong>Street:</strong> {{ popupAddress() }}</p>
+                <p><strong>City:</strong> {{ popupCity() }}</p>
+                <p><strong>Pincode:</strong> {{ popupPincode() }}</p>
+            </div>
+            <div class="signature-container">
+
+                <div class="signature-image">
+                    <img src="/signature.png" alt="Signature" />
+                </div>
+
+                <div class="signature">
+                    Card Holder Signature
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <button class="close-btn" (click)="closePopup(); $event.stopPropagation()">✕ Close</button>
+
+</div>
